@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent-ez | Revolutionizing Sustainability</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f9fafb;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: #3b82f6;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            max-width: 400px;
+            width: 100%;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .card h2 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .button {
+            display: inline-block;
+            background: #3b82f6;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .button:hover {
+            background: #2563eb;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        form label {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        form button {
+            width: 100%;
+            background: #3b82f6;
+            color: #fff;
+            border: none;
+            padding: 0.75rem;
+            margin-top: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #2563eb;
+        }
+
+        .product-list {
+            margin-top: 1rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .product-list li {
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-list li:hover {
+            background-color: #f0f4ff;
+        }
+
+        .product-list img {
+            width: 150px; /* Fixed width */
+            height: 150px; /* Fixed height */
+            object-fit: cover; /* Ensures the image fits within the fixed dimensions */
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+
+        .product-details {
+            text-align: left;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #f3f4f6;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .dark-mode {
+            background-color: #2d2d2d;
+            color: #ccc;
+        }
+
+        .dark-mode header {
+            background-color: #1e1e1e;
+        }
+
+        .dark-mode .card {
+            background: #3c3c3c;
+            color: #ccc;
+            box-shadow: none;
+        }
+
+        .dark-mode .button {
+            background: #5a5a5a;
+        }
+
+        .dark-mode .button:hover {
+            background: #4a4a4a;
+        }
+
+        .dark-mode form input, .dark-mode form textarea {
+            background-color: #555;
+            color: #ddd;
+            border: 1px solid #444;
+        }
+
+        .dark-mode footer {
+            background: #1e1e1e;
+            color: #aaa;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            background: #3b82f6;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rent-ez: Revolutionizing Retail Sustainability</h1>
+    </header>
+
+    <main>
+        <div class="card" id="welcomePage">
+            <h2>Choose Your Role</h2>
+            <a href="#" class="button" onclick="showPage('providerPage')">Be a Provider</a>
+            <a href="#" class="button" onclick="showPage('customerPage')">Be a Customer</a>
+        </div>
+
+        <div class="card hidden" id="providerPage">
+            <h2>Provider Module</h2>
+            <form id="productForm">
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" required>
+
+                <label for="productDescription">Description</label>
+                <textarea id="productDescription" rows="4" required></textarea>
+
+                <label for="productImage">Product Image</label>
+                <input type="file" id="productImage" accept="image/*" required>
+
+                <button type="submit">Upload Product</button>
+            </form>
+            <a href="#" class="button" onclick="showPage('welcomePage')">Back to Home</a>
+        </div>
+
+        <div class="card hidden" id="customerPage">
+            <h2>Customer Module</h2>
+            <h3>Available Products</h3>
+            <ul class="product-list" id="productList"></ul>
+            <a href="#" class="button" onclick="showPage('welcomePage')">Back to Home</a>
+        </div>
+
+        <div class="card hidden" id="productDetailPage">
+            <h2 id="productDetailName"></h2>
+            <img id="productDetailImage" alt="Product image">
+            <p id="productDetailDescription"></p>
+            <button class="button" onclick="alert('Product purchased successfully!')">Buy</button>
+            <button class="button" onclick="alert('Product rented successfully!')">Rent</button>
+            <a href="#" class="button" onclick="showPage('customerPage')">Back to Products</a>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Rent-ez. All Rights Reserved.
+    </footer>
+
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+
+    <script>
+        const products = [];
+
+        function showPage(pageId) {
+            document.querySelectorAll('.card').forEach(card => card.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('productName').value;
+            const description = document.getElementById('productDescription').value;
+            const imageInput = document.getElementById('productImage');
+
+            if (imageInput.files.length === 0) {
+                alert('Please upload an image.');
+                return;
+            }
+
+            const imageFile = imageInput.files[0];
+            const imageUrl = URL.createObjectURL(imageFile);
+
+            products.push({ name, description, imageUrl });
+
+            document.getElementById('productName').value = '';
+            document.getElementById('productDescription').value = '';
+            imageInput.value = '';
+
+            alert('Product uploaded successfully!');
+            updateProductList();
+        });
+
+        function updateProductList() {
+            const productList = document.getElementById('productList');
+            productList.innerHTML = '';
+
+            products.forEach((product, index) => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <strong>${product.name}</strong>: ${product.description}<br>
+                    <img src="${product.imageUrl}" alt="${product.name} image">
+                `;
+                listItem.addEventListener('click', () => viewProductDetails(index));
+                productList.appendChild(listItem);
+            });
+        }
+
+        function viewProductDetails(index) {
+            const product = products[index];
+
+            document.getElementById('productDetailName').textContent = product.name;
+            document.getElementById('productDetailDescription').textContent = product.description;
+            document.getElementById('productDetailImage').src = product.imageUrl;
+
+            showPage('productDetailPage');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
